@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card *ngFor="let t of not;index as i">
+    <ion-item>{{t.from}}</ion-item>
+    <ion-item>{{t.content}}</ion-item>
+    <ion-text color="danger"> <div class="ion-text-right">{{ t.datetime  | date:'shortTime'}}</div>
+      <div class="ion-text-right" color="danger">{{ t.datetime  | date }}</div>
+    </ion-text>
+
+  </ion-card>
+</ion-card>
+</ion-content>

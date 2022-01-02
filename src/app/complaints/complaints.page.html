@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Complaints</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Write a complaint about this worker</ion-label>
+        <ion-input formControlName="complaint" inputmode="text"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-button [disabled]="!form.valid" (click)="onSubmit()">Submit</ion-button>
+      </ion-item>
+
+    </form>
+  </ion-card>
+
+</ion-content>

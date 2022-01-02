@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item *ngIf="first">
+        <ion-avatar>
+            <img src="../../assets/img/workerbadge.png">
+
+        </ion-avatar>
+        <ion-label>worker</ion-label>
+        <ion-toggle [(ngModel)]="status" (ionChange)="change()"></ion-toggle>
+    </ion-item>
+
+    <ion-card>
+      <img src="../../assets/img/worker1.jpg">
+   
+      <ion-card-content>
+        <ion-list *ngFor="let x of joblist">
+          <ion-item (click)="viewWorkers(this.x.category)">
+            <ion-text>
+              {{ x.category }}
+            </ion-text>
+           
+          </ion-item>
+                </ion-list>
+       
+    
+  
+      </ion-card-content>
+     
+     
+      
+    </ion-card>
+
+</ion-content>

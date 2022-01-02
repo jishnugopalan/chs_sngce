@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let c of profile">
+<center>
+<ion-item>
+  <img src="{{c.profile_pic}}"  onError="src = '../../assets/img/profile.png'">
+</ion-item>
+</center>
+<ion-item>
+          <ion-label  color="primary" stacked>Change image</ion-label>
+          <input type="file" (change)="encodeImageFileAsURL($event)" id="inputFileToLoad">
+        </ion-item>
+<ion-item>
+<ion-button (click)="updateimage()">Submit</ion-button>
+</ion-item>
+
+<ion-item (click)="setname()">
+{{c.name}}
+</ion-item>
+
+<form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+<ion-item *ngIf="n">
+<ion-input placeholder="Edit name" inputmode="text" formControlName="name"></ion-input>
+
+<ion-button [disabled]="!nameForm.valid" (click)="updatename()">Save</ion-button>
+</ion-item>
+</form>
+
+<ion-item>
+{{c.email}}
+</ion-item>
+<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+
+<ion-item *ngIf="e">
+<ion-input placeholder="Edit email" type="email" formControlName="email"></ion-input>
+<ion-button [disabled]="!emailForm.valid" (click)="updateemail()">Save</ion-button>
+
+</ion-item>
+</form>
+
+<ion-item (click)="setphone()">
+{{c.phone}}
+</ion-item>
+<form [formGroup]="phoneForm" (ngSubmit)="onSubmit()">
+<ion-item *ngIf="p">
+<ion-input placeholder="Edit phone number" inputmode="tel"formControlName="phone"  ></ion-input>
+
+<ion-button [disabled]="!phoneForm.valid" (click)="updatephone()">Save</ion-button>
+</ion-item>
+</form>
+</ion-card>
+</ion-content>

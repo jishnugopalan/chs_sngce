@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let p of worker">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{p.profile_pic}}">
+      </ion-avatar>
+      <ion-label><b>{{p.name}}</b></ion-label><br>
+     
+    
+
+    </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label>Rate me</ion-label>
+        <ion-icon name="star"  (onmouseover)="starmark(this)"   (click)="starmark(1)" value="1" id="1rt"></ion-icon>
+        <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(2)" id="2rt"></ion-icon>
+        <ion-icon name="star" (onmouseover)="starmark(this)"  (click)="starmark(3)" id="3rt"></ion-icon>
+        <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(4)" id="4rt"></ion-icon>
+        <ion-icon name="star"  (onmouseover)="starmark(this)"  (click)="starmark(5)" id="5rt"></ion-icon>
+        <!-- <img style="width: 50px; height: 50px;" src="../../assets/img/smile 5.png">
+        <img style="width: 50px; height: 50px;" src="../../assets/img/smile 4.jpg">
+        <img style="width: 50px; height: 50px;" src="../../assets/img/smile 3.webp">
+        <img style="width: 50px; height: 50px;" src="../../assets/img/smile 2.jpg">
+        <img style="width: 50px; height: 50px;" src="../../assets/img/smile 1.jfif"> -->
+        
+      </ion-item>
+      <ion-item>
+        <ion-label  position="floating">Write a commend</ion-label>
+        <ion-input [(ngModel)]="commend"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="sendreview()">Submit</ion-button>
+      </ion-item>
+    </ion-card>
+</ion-content>

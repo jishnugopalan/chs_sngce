@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" >
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Complaints</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let c of complaints;index as i">
+    <ion-card>
+    <ion-item>
+      Complaint From:{{profile[i].name}}
+    </ion-item>
+    <ion-item>
+      Complaint about:{{c.workerdetails[0].name}}<br>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="viewworker(c.workerdetails[0]._id)">View Worker</ion-button>
+    </ion-item>
+    <ion-item>
+      Complaint:{{c.complaint}}
+    </ion-item>
+    <ion-item>
+     Replay:{{c.replay}}
+    </ion-item>
+    <form [formGroup]="form">
+
+      <ion-item>
+        <ion-label position="floating">Send Replay</ion-label>
+        <ion-input formControlName="replay"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button [disabled]="!form.valid" (click)="sendreplay(c._id)">Submit</ion-button>
+      </ion-item>
+
+    </form>
+    
+
+    <ion-text color="danger"> <div class="ion-text-right">{{ c.datetime  | date:'shortTime'}}</div>
+      <div class="ion-text-right" color="danger">{{ c.datetime  | date }}</div>
+    </ion-text>
+  
+  </ion-card>
+  </ion-card>
+  
+</ion-content>

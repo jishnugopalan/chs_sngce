@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Approve Workers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor="let j of workerslist; let i = index ;">
+    <ion-card>
+    <ion-item (onclick)="view(this.j)">
+      <ion-text>
+        Name:{{ j.name }}
+       
+      </ion-text>
+    </ion-item>
+    <ion-button (click)="view(this.j)">View</ion-button>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

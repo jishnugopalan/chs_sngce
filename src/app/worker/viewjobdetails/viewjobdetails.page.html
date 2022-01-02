@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Works</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let p of pages">
+    <ion-item> <ion-avatar slot="start">
+      <img src="{{p.profile_pic}}">
+    </ion-avatar>
+    
+    <ion-label><b>{{p.name}}</b></ion-label></ion-item>
+    <ion-item>
+      {{p.phone}}<a href="tel:{{p.phone}}" class="button button-positive"></a>
+    </ion-item>
+    <ion-button (click)="accept()" color="success">Accept</ion-button>
+    <ion-button (click)="reject()" color="danger">Reject</ion-button>
+  </ion-card>
+  
+  <div #mapElement class="map" id="map"></div>
+  
+</ion-content>

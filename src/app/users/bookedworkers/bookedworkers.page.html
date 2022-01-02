@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Workers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card *ngFor="let p of details.reverse()">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{p.workerdetails[0].profile_pic}}">
+      </ion-avatar>
+      <ion-label><b>{{p.workerdetails[0].name}}</b></ion-label><br>
+     
+    
+
+    </ion-item>
+    <ion-item>
+      {{p.workerdetails[0].phone}}
+    </ion-item>
+    <ion-item *ngIf="p.worker_status==1">
+      <ion-button (click)="chatnow(p.workerdetails[0]._id)">Chat</ion-button>
+    </ion-item>
+    <ion-item *ngIf="p.worker_status==1">
+      <ion-button (click)="viewbill(p._id,p.workerdetails[0]._id)">View Bill</ion-button>
+    </ion-item>
+    <ion-item *ngIf="p.worker_status==0">
+      <ion-text color="danger">Your request is in waiting list</ion-text>
+      
+    </ion-item>
+    <ion-item *ngIf="p.worker_status==2">
+      <ion-button (click)="addreview(p.workerdetails[0]._id)">Add Review</ion-button>
+      <ion-button (click)="addcomplaint(p.workerdetails[0]._id)">Register a complaint</ion-button>
+
+      
+    </ion-item>
+  </ion-card>
+
+</ion-content>

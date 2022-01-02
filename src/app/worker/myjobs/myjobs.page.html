@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Jobs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let p of details">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="{{p.workerdetails[0].profile_pic}}">
+      </ion-avatar>
+      <ion-label><b>{{p.workerdetails[0].name}}</b></ion-label><br>
+     
+    
+
+    </ion-item>
+    <ion-item>
+      {{p.workerdetails[0].phone}}
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="chatnow(p.workerdetails[0]._id)">Chat</ion-button>
+      <ion-button (click)="addbill(p.workerdetails[0]._id,p._id)">Send Bill</ion-button>
+      <ion-button (click)="complete(p._id)">Marked as complete</ion-button>
+
+    </ion-item>
+  </ion-card>
+</ion-content>

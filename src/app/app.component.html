@@ -1,0 +1,104 @@
+<ion-app>
+<ion-split-pane contentId="main-content">
+ <ion-menu contentId="main-content" type="overlay" *ngIf="user">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/Complete Home Solutions.png">
+      </ion-toolbar>
+      
+        <!-- User Menu -->
+        <ion-list id="inbox-list">
+          <ion-list-header>
+        
+      
+       
+         
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of UserPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}<ion-badge color="danger" *ngIf="i==4">{{count}}</ion-badge></ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+
+       
+        
+        
+      </ion-content>
+    </ion-menu>
+
+    <!-- Admin Menu -->
+    <ion-menu contentId="main-content" type="overlay" *ngIf="admin">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/Complete Home Solutions.png">
+      </ion-toolbar>
+        <!-- Admin menu -->
+        <ion-list id="inbox-list"  *ngIf="admin">
+          <ion-list-header>
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of AdminPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+        
+      </ion-content>
+    </ion-menu>
+    
+    <!-- Worker Menu -->
+    <ion-menu contentId="main-content" type="overlay" *ngIf="worker">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/Complete Home Solutions.png">
+      </ion-toolbar>
+        <!-- Admin menu -->
+        <ion-list id="inbox-list">
+          <ion-list-header>
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of WorkerPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}<ion-badge color="danger" *ngIf="i==6">{{count}}</ion-badge></ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+        
+      </ion-content>
+    </ion-menu>
+
+
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+</ion-app>

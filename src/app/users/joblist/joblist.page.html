@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Job Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card>
+   
+    <ion-card-content>
+      <ion-list *ngFor="let x of joblist">
+        <ion-item (click)="viewWorkers(this.x.category)">
+          <ion-text>
+            {{ x.category }}
+          </ion-text>
+         
+        </ion-item>
+              </ion-list>
+     
+  
+
+    </ion-card-content>
+   
+   
+    
+  </ion-card>
+
+</ion-content>

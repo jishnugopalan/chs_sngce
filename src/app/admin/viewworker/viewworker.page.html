@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Worker Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="danger">
+  <ion-card color="light" >
+
+    <ion-list *ngFor="let j of workerslist">
+
+      <ion-item>
+        <ion-text>
+          Job name:{{ j.job_category }}
+         
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        Job starting time:{{ j.job_start_time | date:'shortTime'}}
+        
+      </ion-item>
+      <ion-item>
+        Job ending time:{{ j.job_end_time | date:'shortTime' }}
+       
+      </ion-item>
+      <ion-item>
+        Expected salary:{{ j.job_salary }}
+        
+      </ion-item>
+      <ion-item>
+        Job verification:{{ j.job_verification }}
+        
+      </ion-item>
+      <ion-item>
+        <img src="{{ j.job_document }}">
+        
+      </ion-item>
+      <ion-item>
+        Job Description:{{ j.job_description }}
+      </ion-item>
+    </ion-list>
+       <ion-card>
+         <ion-item>
+          <ion-button (click)="disable()">Disable Account</ion-button>
+         </ion-item>
+         <ion-item>
+          <ion-button (click)="activate()">Activate Account</ion-button>
+           
+         </ion-item>
+         <ion-item>
+          <ion-button (click)="reject()">Delete Account</ion-button>
+           
+         </ion-item>
+         
+       </ion-card>
+       
+  
+  </ion-card>
+  
+</ion-content>
+
+

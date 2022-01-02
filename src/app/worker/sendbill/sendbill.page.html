@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create Bill</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let i of user">
+  <ion-item> <ion-avatar slot="start">
+    <img src="{{i.profile_pic}}">
+  </ion-avatar>
+  
+  <ion-label><b>{{i.name}}</b></ion-label></ion-item>
+  
+</ion-card>
+<ion-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" > 
+    <ion-item>
+      <ion-label class="testclass" position="floating" >Tool Name<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input formControlName="toolname" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Rate<ion-text color="danger">*</ion-text></ion-label>
+      <ion-input formControlName="rate" inputmode="number"></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!form.valid" color="primary" expand="block" type="submit" class="ion-no-margin" color="primary">Add</ion-button>
+  </form>
+</ion-card>
+<ion-card>
+  <ion-row style="border-bottom: groove;">
+    <ion-col col-4>
+      <ion-item>
+    <ion-label >Tool Name</ion-label>
+    </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item>
+    <ion-label >Rate</ion-label>
+    </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item>
+    <ion-label ></ion-label>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<ion-card *ngFor="let c of bill;index as i">
+  <ion-row style="border-bottom: groove;">
+    <ion-col col-4>
+      <ion-item>
+    <ion-text >{{c.toolname}}</ion-text>
+  </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item>
+    <ion-text >{{c.rate}}</ion-text>
+  </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item (click)="deleteBill(c._id)">
+    <ion-text ><ion-icon name="trash-outline"></ion-icon></ion-text>
+  </ion-item>
+  </ion-col>
+</ion-row>
+
+  
+  </ion-card>
+  <ion-row style="border-bottom: groove;">
+    <ion-col col-4>
+      <ion-item>
+    <ion-text >Total</ion-text>
+  </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item>
+    <ion-text >{{total}}</ion-text>
+  </ion-item>
+  </ion-col>
+  <ion-col col-4>
+    <ion-item>
+  <ion-text ></ion-text>
+</ion-item>
+</ion-col>
+</ion-row>
+</ion-card>
+</ion-content>
