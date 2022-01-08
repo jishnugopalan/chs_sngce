@@ -17,6 +17,15 @@
     <ion-item>
       {{p.phone}}<a href="tel:{{p.phone}}" class="button button-positive"></a>
     </ion-item>
+    <ion-card *ngFor="let d of details">
+     <ion-item>
+       Date:
+       {{ d.booking_date  | date }}
+     </ion-item>
+     <ion-item>
+       Remarks:{{d.remarks}}
+     </ion-item>
+    </ion-card>
     <ion-button (click)="accept()" color="success">Accept</ion-button>
     <ion-button (click)="reject()" color="danger">Reject</ion-button>
   </ion-card>

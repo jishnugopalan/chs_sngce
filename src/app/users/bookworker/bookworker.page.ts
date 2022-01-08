@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Component,AfterViewInit, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -20,6 +21,7 @@ export class BookworkerPage implements OnInit {
   longitude=''
   workersdetails=[];
   currentMapTrack = null;
+  form:FormGroup
 
   //@ViewChild('map', { static: false }) mapElement: ElementRef;
   @ViewChild('mapElement',{ static: true }) mapNativeElement: ElementRef;
@@ -41,7 +43,13 @@ export class BookworkerPage implements OnInit {
   mapElement:any;
   s=false;
 
-  constructor(private authService:AuthService,private router:Router,public alertController: AlertController,private geolocation: Geolocation,private nativeGeocoder: NativeGeocoder) { }
+  constructor(private authService:AuthService,private router:Router,public alertController: AlertController,private geolocation: Geolocation,private nativeGeocoder: NativeGeocoder,public formBuilder: FormBuilder) {
+    this.form=this.formBuilder.group({
+      booking_date:['',[Validators.required]],
+      remarks:['',[Validators.required]]
+    })
+   }
+
 
   async bookworker(id){
  console.log(id)
@@ -55,7 +63,7 @@ export class BookworkerPage implements OnInit {
   await alert.present();
 }
 else{
-  this.authService.bookworker({"userid":this.authService.user.id,"workerid":id}).subscribe(async (res:any)=>{
+  this.authService.bookworker({"userid":this.authService.user.id,"workerid":id,"booking_date":this.form.value.booking_date,"remarks":this.form.value.remarks}).subscribe(async (res:any)=>{
     console.log(res)
     var bookingid=res._id;
     console.log(bookingid)

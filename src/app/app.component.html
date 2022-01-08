@@ -24,7 +24,7 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of UserPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}<ion-badge color="danger" *ngIf="i==4">{{count}}</ion-badge></ion-label>
+              <ion-label>{{ p.title }}<ion-badge color="danger" *ngIf="i==3">{{count}}</ion-badge></ion-label>
             </ion-item>
             
           </ion-menu-toggle>

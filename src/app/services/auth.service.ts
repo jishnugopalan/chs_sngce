@@ -57,6 +57,14 @@ export class AuthService {
     });
   }
 
+  viewworkdetails(credentials: any) {
+    return this.http.post(`${this.url}/api/viewworkdetails`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
   updatepass(credentials: any) {
     return this.http.post(`${this.url}/api/updatepass`, credentials).pipe(
       catchError(e => {
