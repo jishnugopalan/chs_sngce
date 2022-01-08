@@ -28,7 +28,7 @@
     </ion-item>
     <ion-item>
       
-      <b>Salary:</b>{{w.workersdetails[0].job_salary}}Rs
+      <b>Service Charge:</b>{{w.workersdetails[0].job_salary}}Rs
      
     </ion-item>
     <ion-item>
@@ -36,11 +36,21 @@
     </ion-item>
     <ion-item>
       
-    
-
-      <ion-button (click)="bookworker(this.w.workersdetails[0].userid)">
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label>Select a date</ion-label>
+        <ion-datetime formControlName="booking_date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Remarks</ion-label>
+        <ion-textarea formControlName="remarks"></ion-textarea>
+      </ion-item>
+      <ion-button [disabled]="!form.valid" (click)="bookworker(this.w.workersdetails[0].userid)">
         book
       </ion-button>
+    </form>
+
+      
      
     </ion-item>
     

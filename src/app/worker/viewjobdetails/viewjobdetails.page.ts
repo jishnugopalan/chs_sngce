@@ -15,6 +15,7 @@ declare var google;
 })
 export class ViewjobdetailsPage implements OnInit {
   pages=[]
+  details=[]
   @ViewChild('mapElement',{ static: true }) mapNativeElement: ElementRef;
   constructor(private authService:AuthService,private router:Router,private geolocation: Geolocation,public toastController: ToastController) { }
 
@@ -43,6 +44,11 @@ export class ViewjobdetailsPage implements OnInit {
     })
    }
   ngOnInit() {
+
+   this.authService.viewworkdetails({"bookingid":this.authService.bookingid}).subscribe((res:any)=>{
+     console.log(res)
+     this.details=[res]
+   })
     this.authService.viewprofile({"_id":this.authService.jid}).subscribe((res:any)=>{
       console.log(res)
       a=[res]
