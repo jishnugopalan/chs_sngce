@@ -34,6 +34,7 @@ export class DemoPage implements OnInit {
   }
   public viewWorkers(cat){
     console.log(cat)
+    this.authService.category=cat
     this.authService.viewmyworkers({"category":cat}).subscribe(res=>{
       console.log(res)
       this.authService.myworkers=res;

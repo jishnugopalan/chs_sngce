@@ -12,7 +12,17 @@ export class WorkerslistPage implements OnInit {
   workerslist=[];
   workersdetails=[];
   w
+  servicecharge=500
+  avl="Available"
+  isFilter=false
   constructor(private authService:AuthService,private router:Router,public toastController: ToastController) { }
+  filter(){
+    this.authService.filterworkers({"servicecharge":this.servicecharge,"category":this.authService.category,"available_status":this.avl}).subscribe((res:any)=>{
+      console.log(res)
+      this.workerslist=res
+      
+    })
+  }
   public bookworker(id){
     console.log(id)
     this.authService.workerid=id;

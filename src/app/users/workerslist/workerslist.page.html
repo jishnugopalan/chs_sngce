@@ -8,6 +8,37 @@
 </ion-header>
 
 <ion-content>
+  <!-- <ion-item>
+  <ion-searchbar showCancelButton="always"></ion-searchbar>
+</ion-item> -->
+<ion-item>
+  <ion-label>Filter with</ion-label>
+  <ion-toggle [(ngModel)]="isFilter" ></ion-toggle>
+</ion-item>
+<ion-item *ngIf="isFilter">
+  <ion-text>Service Charge Below {{servicecharge}}Rs</ion-text><br>
+
+  <ion-range min="500" max="10000" step="100" snaps="true" color="secondary" [(ngModel)]="servicecharge" (ngModelChange)="filter()"></ion-range>
+</ion-item>
+<ion-list *ngIf="isFilter">
+  <ion-radio-group [(ngModel)]="avl" (ngModelChange)="filter()">
+    <ion-list-header>
+      <ion-label>Availability</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Available</ion-label>
+      <ion-radio slot="start" value="Available"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Not Available</ion-label>
+      <ion-radio slot="start" value="Not available"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list>
+ 
+
 <ion-card *ngFor="let w of workerslist"  class="ion-margin-start">
     <ion-item>
       <ion-avatar slot="start">
