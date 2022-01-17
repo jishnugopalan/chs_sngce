@@ -32,6 +32,7 @@ export class AuthService {
   bookingid:any
   chatid:any
   userid:any
+  category:any
  
   constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage,
     private plt: Platform, private alertController: AlertController) {
@@ -57,6 +58,14 @@ export class AuthService {
     });
   }
 
+  filterworkers(credentials: any) {
+    return this.http.post(`${this.url}/api/filterworkers`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
   viewworkdetails(credentials: any) {
     return this.http.post(`${this.url}/api/viewworkdetails`, credentials).pipe(
       catchError(e => {
