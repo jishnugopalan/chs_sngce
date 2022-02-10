@@ -58,6 +58,14 @@ export class AuthService {
     });
   }
 
+  filterworkerswithrate(credentials: any) {
+    return this.http.post(`${this.url}/api/filterworkerswithrate`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
   filterworkers(credentials: any) {
     return this.http.post(`${this.url}/api/filterworkers`, credentials).pipe(
       catchError(e => {

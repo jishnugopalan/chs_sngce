@@ -96,7 +96,7 @@ paid=false
         translucent: true,
       });
       await loading.present();
-      this.authService.savepayment({"userid":this.authService.user.id,"workerid":this.authService.workerid,"bookingid":this.authService.bookingid,"paymentid":payment_id.razorpay_payment_id,"payment":this.amt,"datetime":Date.now()}).subscribe(async (res:any)=>{
+      this.authService.savepayment({"userid":this.authService.user.id,"workerid":this.authService.workerid,"bookingid":this.authService.bookingid,"paymentid":payment_id.razorpay_payment_id,"payment":this.amt-150,"datetime":Date.now()}).subscribe(async (res:any)=>{
       console.log(res);
       loading.dismiss()
       const toast = await this.toastController.create({
@@ -118,6 +118,7 @@ paid=false
   getTotal(){
     console.log(this.total+this.sal)
     this.amt= Number(this.total)+Number(this.sal)
+    this.amt=this.amt+150
     return this.amt;
 
   }

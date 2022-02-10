@@ -15,7 +15,12 @@ export class WorkeraccoutPage implements OnInit {
  workerForm:FormGroup
  files=''
   count: Object;
-
+jtype=[]
+options = [
+  {name:'One Day Work', value:'One Day Work', checked:true},
+  {name:'Contract Based', value:'Contract Based', checked:false},
+  {name:'Full Time', value:'Full Time', checked:true}
+]
   constructor(private authService:AuthService,public router: Router, public formbuilder: FormBuilder,public toastController: ToastController,public alertController: AlertController) { 
     this.workerForm = this.formbuilder.group({
       job_category: ['', [Validators.required]],
@@ -25,7 +30,8 @@ export class WorkeraccoutPage implements OnInit {
       job_verification: ['', [Validators.required]],
        //job_document: ['', [Validators.required]],
       job_description: ['', [Validators.required]],
-      keyid:['',Validators.required]
+      keyid:['',Validators.required],
+      jobtype:['',Validators.required]
   });
 }
 get job_category(){
@@ -88,6 +94,13 @@ async encodeImageFileAsURL() {
     }
 }
 public submit(){
+  for(let i=0;i<this.options.length;i++){
+    if(this.options[i].checked==true){
+      console.log(this.options[i].name)
+      this.jtype.push(this.options[i].name)
+    }
+  }
+  this.workerForm.value.jobtype=this.jtype
   console.log(this.workerForm.value);
   var data=this.workerForm.value;
   //console.log(this.authService.logid)

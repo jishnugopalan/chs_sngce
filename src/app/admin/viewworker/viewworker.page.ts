@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastController, AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 var jobs:any
+var n:any
 @Component({
   selector: 'app-viewworker',
   templateUrl: './viewworker.page.html',
@@ -11,7 +12,7 @@ export class ViewworkerPage implements OnInit {
 
   constructor(private authService:AuthService,public toastController:ToastController,public alertController:AlertController) { }
   workerslist=[]
-
+  review=""
   disable(){
     let workerid=this.authService.id
     var Dt = Date.now();
@@ -79,6 +80,11 @@ export class ViewworkerPage implements OnInit {
        //this.workersdetails=jobs.workersdetails;
       //  console.log(this.workersdetails)
 
+    })
+    this.authService.viewreview({"workerid":this.authService.id}).subscribe((res:any)=>{
+      console.log(res)
+      n=res
+    this.review=n
     })
   }
 

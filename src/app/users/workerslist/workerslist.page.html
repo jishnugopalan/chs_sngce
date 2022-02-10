@@ -20,7 +20,28 @@
 
   <ion-range min="500" max="10000" step="100" snaps="true" color="secondary" [(ngModel)]="servicecharge" (ngModelChange)="filter()"></ion-range>
 </ion-item>
-<ion-list *ngIf="isFilter">
+<ion-item *ngIf="isFilter">
+  <ion-radio-group [(ngModel)]="jtype" (ngModelChange)="filter()">
+    <ion-list-header>
+      <ion-label>Job Type</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>One Day Work</ion-label>
+      <ion-radio slot="start" value="One Day Work"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Contract Based</ion-label>
+      <ion-radio slot="start" value="Contract Based"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Full Time</ion-label>
+      <ion-radio slot="start" value="Full Time"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-item>
+<!-- <ion-list *ngIf="isFilter">
   <ion-radio-group [(ngModel)]="avl" (ngModelChange)="filter()">
     <ion-list-header>
       <ion-label>Availability</ion-label>
@@ -36,7 +57,7 @@
       <ion-radio slot="start" value="Not available"></ion-radio>
     </ion-item>
   </ion-radio-group>
-</ion-list>
+</ion-list> -->
  
 
 <ion-card *ngFor="let w of workerslist"  class="ion-margin-start">

@@ -33,7 +33,7 @@ export class BookworkerPage implements OnInit {
   trackedRoute = [];
   previousTracks = [];
   review=[]
- 
+ jobtype=[]
   positionSubscription: Subscription;
   
   note=false;
@@ -141,6 +141,8 @@ else{
 this.authService.viewreview({"workerid":this.authService.workerid}).subscribe((res:any)=>{
   console.log(res)
   n=res
+  
+  console.log(this.jobtype)
 this.review=n
 })
   }
