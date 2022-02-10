@@ -78,6 +78,21 @@ form. <a href="https://razorpay.com/">Click here to create razorpay account</a>
           <ion-textarea placeholder="Description about the job" formControlName="job_description" ></ion-textarea>
         </ion-item>
       </ion-card>
+      <ion-card>
+        <ion-item>
+          <label for="options">Job Type</label>
+          <div *ngFor="let option of options">
+              <label>
+                  <input type="checkbox"
+                  formControlName="jobtype"
+                         value="{{option.value}}"
+                         [(ngModel)]="option.checked"/>
+                  {{option.name}}
+              </label>
+          </div>
+         </ion-item>
+        
+      </ion-card>
       <ion-button [disabled]="!workerForm.valid" expand="block" color="success" type="submit">Save</ion-button>
       <!-- <ion-button expand="block" color="danger">Cancel</ion-button> -->
   

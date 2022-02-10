@@ -26,9 +26,9 @@ export class AppComponent {
     // { title: 'Jobs', url: 'joblist', icon: 'bag' },
     { title: 'My Workers', url: 'bookedworkers', icon: 'person' },
     { title: 'Notifications', url: 'notification', icon: 'notifications' },
-    // { title: 'Complaints', url: 'viewcomplaints', icon: 'ticket' },
+    { title: 'Complaints', url: 'viewcomplaints', icon: 'ticket' },
     { title: 'Settings', url: 'settings', icon: 'settings' },
-    // { title: 'About', url: 'about', icon: 'information' },
+    { title: 'About', url: 'about', icon: 'information' },
 
     
   
@@ -37,9 +37,9 @@ export class AppComponent {
     { title: 'Home', url: 'adminhome', icon: 'home' },
     { title: 'Add Category', url: 'addcategory', icon: 'add-circle' },
     { title: 'Approve Workers', url: 'viewworkers', icon: 'pencil' },
-    // { title: 'Complaints', url: 'viewcomplaintbyadmin', icon: 'ticket' },
+    { title: 'Complaints', url: 'viewcomplaintbyadmin', icon: 'ticket' },
     { title: 'Settings', url: 'settings', icon: 'settings' },
-    // { title: 'About', url: 'about', icon: 'information' },
+    { title: 'About', url: 'about', icon: 'information' },
 
   ]
 
@@ -51,12 +51,12 @@ export class AppComponent {
     { title: 'My Workers', url: 'bookedworkers', icon: 'person' },
     // { title: 'My Earnings', url: 'myearnings', icon: 'cash' },
     { title: 'Notifications', url: 'notification', icon: 'notifications' },
-    // { title: 'Complaints', url: 'viewcomplaints', icon: 'ticket' },
-    // { title: 'Update Worker Details', url: 'updatedetails', icon: 'person-circle' },
+    { title: 'Complaints', url: 'viewcomplaints', icon: 'ticket' },
+    { title: 'Update Worker Details', url: 'updatedetails', icon: 'person-circle' },
 
     { title: 'Settings', url: 'settings', icon: 'settings' },
 
-    // { title: 'About', url: 'about', icon: 'information' },
+    { title: 'About', url: 'about', icon: 'information' },
    
   ]
 

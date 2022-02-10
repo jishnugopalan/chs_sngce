@@ -13,11 +13,12 @@ export class WorkerslistPage implements OnInit {
   workersdetails=[];
   w
   servicecharge=500
-  avl="Available"
+  jtype=""
+  rating=""
   isFilter=false
   constructor(private authService:AuthService,private router:Router,public toastController: ToastController) { }
   filter(){
-    this.authService.filterworkers({"servicecharge":this.servicecharge,"category":this.authService.category,"available_status":this.avl}).subscribe((res:any)=>{
+    this.authService.filterworkers({"servicecharge":this.servicecharge,"category":this.authService.category,"jobtype":this.jtype}).subscribe((res:any)=>{
       console.log(res)
       this.workerslist=res
       
@@ -33,6 +34,11 @@ export class WorkerslistPage implements OnInit {
   
     })
   
+  }
+
+  filterwithrate(){
+    console.log(this.rating)
+
   }
 
   async ngOnInit() {

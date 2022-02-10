@@ -45,28 +45,24 @@
   
     
     </ion-card>
-    <ion-row style="border-bottom: groove;">
-      <ion-col col-4>
+    
         <ion-item>
       <ion-text >Total</ion-text>
     </ion-item>
-    </ion-col>
-    <ion-col col-4>
+   
       <ion-item>
-      <ion-text>₹{{total}}<br>
-      ₹{{sal}}(Salary)<br>
-      ₹{{ getTotal() }}</ion-text>
+      <ion-text>Tools and Accessories ₹{{total}}<br>
+      Adding Salary ₹{{sal}}<br>
+      Adding  ₹150 for Company Service Charge₹{{ getTotal() }}</ion-text>
 
 
     </ion-item>
-    </ion-col>
-    <ion-col col-4>
+   
       <ion-item>
     <ion-text ></ion-text>
   </ion-item>
-  </ion-col>
-  </ion-row>
-  <ion-button expand="block" (click)="payWithRazorpay()" *ngIf="paid==false">Pay Now</ion-button>
+  
+  <ion-button expand="block" (click)="payWithRazorpay()" *ngIf="paid==false">₹{{ getTotal() }} Pay Now</ion-button>
   <ion-item *ngIf="paid==true">You are already paid this bill</ion-item>
   </ion-card>
 </ion-content>
