@@ -65,4 +65,11 @@
   <ion-button expand="block" (click)="payWithRazorpay()" *ngIf="paid==false">₹{{ getTotal() }} Pay Now</ion-button>
   <ion-item *ngIf="paid==true">You are already paid this bill</ion-item>
   </ion-card>
+  <ion-card>
+    <ion-item><h3>Bill Image</h3></ion-item>
+  </ion-card>
+  <ion-card *ngFor="let i of billimage">
+    <img src="{{i.billimage}}">
+
+  </ion-card>
 </ion-content>

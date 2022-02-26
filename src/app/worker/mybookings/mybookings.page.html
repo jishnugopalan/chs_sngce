@@ -8,16 +8,16 @@
 </ion-header>
 
 <ion-content>
-<ion-item>
+<!-- <ion-item>
     <ion-label>View Bookings</ion-label>
     <ion-toggle [(ngModel)]="worker" (ionChange)="viewworker()"></ion-toggle>
-  </ion-item>
-  <ion-item *ngIf="w">
+  </ion-item> -->
+  <!-- <ion-item>
     <ion-label>View works</ion-label>
     <ion-toggle [(ngModel)]="job" (ionChange)="viewjobs()"></ion-toggle>
-  </ion-item>
+  </ion-item> -->
 
-  <ion-card  *ngIf="worker">
+  <!-- <ion-card  *ngIf="worker">
     <ion-card *ngFor="let p of pages">
       <ion-item (click)="workerdetails(this.p.workerid)">
         <ion-avatar slot="start">
@@ -29,8 +29,8 @@
   
       </ion-item>
     </ion-card>
-  </ion-card>
-  <ion-card  *ngIf="job">
+  </ion-card> -->
+  <ion-card>
     <ion-card *ngFor="let p of jobs">
       <ion-item (click)="jobdetails(this.p.userid,this.p._id)">
         <ion-avatar slot="start">

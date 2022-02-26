@@ -89,6 +89,21 @@ jobdetails(wid,bookingid)
       console.log(res)
      this.w=true
     })
+    this.authService.viewmybookedjobs({"workerid":this.authService.user.id}).subscribe(async res=>{
+      console.log(res)
+      j=res
+      if(j.length==0)
+      {
+        const toast = await this.toastController.create({
+          message: 'No Jobs found...',
+          duration: 2000
+        });
+        toast.present();
+      }
+      this.jobs=j
+      
+       })
+       
 
   }
 

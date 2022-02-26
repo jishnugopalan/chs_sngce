@@ -28,7 +28,8 @@
       <ion-button (click)="viewbill(p._id,p.workerdetails[0]._id)">View Bill</ion-button>
     </ion-item>
     <ion-item *ngIf="p.worker_status==0">
-      <ion-text color="danger">Your request is in waiting list</ion-text>
+      <ion-text color="danger">Your request is in waiting list</ion-text><br>
+      <ion-button color="danger" (click)="cancelRequest(p._id)">Cancel Request</ion-button>
       
     </ion-item>
     <ion-item *ngIf="p.worker_status==2">

@@ -30,6 +30,7 @@
     <ion-button [disabled]="!form.valid" color="primary" expand="block" type="submit" class="ion-no-margin" color="primary">Add</ion-button>
   </form>
 </ion-card>
+
 <ion-card>
   <ion-row style="border-bottom: groove;">
     <ion-col col-4>
@@ -86,5 +87,17 @@
 </ion-item>
 </ion-col>
 </ion-row>
+</ion-card>
+<ion-card>
+  <ion-item>
+    <ion-label  color="primary">Upload Bill Image</ion-label><br>
+   
+  </ion-item>
+  <ion-item>
+    <input type="file"  (change)="encodeImageFileAsURL($event)" id="inputFileToLoad">
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="uploadimage()">Upload</ion-button>
+  </ion-item>
 </ion-card>
 </ion-content>

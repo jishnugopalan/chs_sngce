@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class BookedworkersPage implements OnInit {
 details=[]
-  constructor(private authService:AuthService,private router:Router) { }
+  constructor(private authService:AuthService,private router:Router,public toastController: ToastController) { }
 
   addreview(workerid){
   console.log(workerid)
@@ -23,6 +24,18 @@ details=[]
     this.router.navigateByUrl("viewbill")
 
     
+   }
+   cancelRequest(bookingid){
+     this.authService.cancelbooking({"bookingid":bookingid}).subscribe(async (res:any)=>{
+       console.log(res)
+       const toast = await this.toastController.create({
+        message: 'Booking cancelled successfully',
+        duration: 2000
+      });
+      toast.present();
+      this.ngOnInit()
+       
+     })
    }
    addcomplaint(workerid){
     console.log(workerid)

@@ -57,7 +57,31 @@ export class AuthService {
       }
     });
   }
-
+  
+  viewbillimage(credentials: any) {
+    return this.http.post(`${this.url}/api/viewbillimage`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
+  addbillimage(credentials: any) {
+    return this.http.post(`${this.url}/api/addbillimage`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
+  cancelbooking(credentials: any) {
+    return this.http.post(`${this.url}/api/cancelbooking`, credentials).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
   filterworkerswithrate(credentials: any) {
     return this.http.post(`${this.url}/api/filterworkerswithrate`, credentials).pipe(
       catchError(e => {

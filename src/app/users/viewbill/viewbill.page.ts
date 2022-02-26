@@ -12,6 +12,7 @@ declare var RazorpayCheckout:any;
 export class ViewbillPage implements OnInit {
 total=0
 bill=[]
+billimage=[]
 keyid=""
 sal=0
 amt=0
@@ -154,6 +155,10 @@ paid=false
       this.paid=true
     })
    // this.amt=this.total+this.sal
+   this.authService.viewbillimage({"bookingid":this.authService.bookingid}).subscribe((res:any)=>{
+     console.log(res)
+  this.billimage=res
+   })
   }
 
 }
